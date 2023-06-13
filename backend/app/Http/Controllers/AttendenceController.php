@@ -38,4 +38,9 @@ class AttendenceController extends Controller
         }
 
     }
+
+    public function getTotalWorkingHours($employee_id=null) {
+        $totalWorkingHoursData = $this->attendenceService::getTotalWorkingHours($employee_id);
+        return response()->json([$totalWorkingHoursData], 200);
+    }
 }
