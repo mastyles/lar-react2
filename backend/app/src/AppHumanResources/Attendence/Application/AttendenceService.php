@@ -26,4 +26,14 @@ class AttendenceService
             'attendences' => $attendences
         ];
     }
+
+    public static function getAttendence() {
+        $attendence = Attendence::orderBy('id', 'asc')
+                        ->join('employees', 'attendences.employee_id', '=', 'employees.id')
+                        ->select('employees.name', 'attendences.*')
+                        ->get();
+        return [
+            'attendence' => $attendence
+        ];
+    }
 }

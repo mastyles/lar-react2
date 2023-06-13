@@ -43,4 +43,9 @@ class AttendenceController extends Controller
         $totalWorkingHoursData = $this->attendenceService::getTotalWorkingHours($employee_id);
         return response()->json([$totalWorkingHoursData], 200);
     }
+
+    public function getAttendence() {
+        $attendence = $this->attendenceService::getAttendence();
+        return response()->json([$attendence], 200);
+    }
 }
